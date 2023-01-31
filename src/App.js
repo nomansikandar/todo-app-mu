@@ -9,16 +9,23 @@ function App() {
   const [item, setItem] = useState();
   const [newitem, setNewItem] = useState([]);
 
+  const listOfItems = () => {
+    if (item === "") {
+      alert("cannot add empty todo")
+    } else {
+      setNewItem((prevVal) => {
+        return [...prevVal, item]
+      });
+      setItem("");
+    }
+
+  }
+
   const itemEvent = (e) => {
     setItem(e.target.value);
   }
 
-  const listOfItems = () => {
-    setNewItem((prevVal) => {
-      return [...prevVal, item]
-    });
-    setItem("");
-  }
+
 
   return (
     <div className="main_div">
